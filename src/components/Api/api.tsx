@@ -36,15 +36,42 @@ export default function Api() {
 
     }
 
+
+    // Adicionando item ao localStorage com funcao para diferenciar se ja existe  
     function BuyItem(item: ArrayObject) {
 
-        const ItemJson = JSON.stringify([item]);
+        const itemSalvos: string | null = localStorage.getItem("compraItem") || '';
 
-        localStorage.setItem("compraItem", ItemJson);
+        if (itemSalvos !== '') {
+            let itemJson: ArrayObject[] = JSON.parse(itemSalvos);
 
+            console.log(itemJson.indexOf(item))
 
+            let existe: boolean = false;
+
+            itemJson.forEach(valor => {
+
+                if (valor.name === item.name) {
+                    existe = true;
+
+                }
+            })
+
+            if (!existe) {
+                itemJson.push(item);
+                localStorage.setItem("compraItem", JSON.stringify(itemJson));
+
+            }
+
+        } else {
+
+            let itemJson: ArrayObject[] = [];
+            itemJson.push(item);
+            localStorage.setItem("compraItem", JSON.stringify(itemJson));
+        }
 
     }
+
 
     return (
         <div className='boxObeject'>
