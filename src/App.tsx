@@ -10,11 +10,7 @@ function App() {
       <Header/>
       <Api/>
 
-      
     
-
-
-
       <Footer/>
      
     </div>
