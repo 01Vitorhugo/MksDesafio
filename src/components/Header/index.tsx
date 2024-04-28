@@ -10,7 +10,9 @@ type TypeItemBuy = {
     brand: string,
     description: string,
     photo: string,
-    price: string
+    price: string,
+
+    numberItem: number
 
 }
 
@@ -19,7 +21,7 @@ export default function Header() {
 
     const [boxCar, setBoxCar] = useState(false);
     const [itemBuyConvert, setItemBuyConvert] = useState<TypeItemBuy[]>([]);
-    const [addItem, setAddItem] = useState(1);
+    const [totalBuyFinish, setTotalBuyFinish] = useState('')
 
 
     useEffect(() => {
@@ -28,17 +30,23 @@ export default function Header() {
 
         if (dadosLocalStorage) {
             const dados: TypeItemBuy[] = JSON.parse(dadosLocalStorage);
-
             setItemBuyConvert(dados);
+
+            var priceTotal = 0.0;
+            dados.forEach(item => {
+                priceTotal += parseFloat(item.price);
+
+                if (item.numberItem !== null) {
+                    item.numberItem = 1;
+                }
+
+                setTotalBuyFinish(priceTotal.toString())
+            })
+
+
         }
 
-
-
     }, []);
-
-    console.log(itemBuyConvert)
-
-
 
 
 
@@ -55,6 +63,8 @@ export default function Header() {
     }
 
 
+
+
     function AnimateMenu(): boolean {
         if (boxCar === false) {
             setBoxCar(true);
@@ -66,18 +76,76 @@ export default function Header() {
         }
     }
 
-    function RemoveItem() {
-        if (addItem > 0) {
-            setAddItem(addItem - 1);
+
+
+
+    function RemoveItemCar(item: TypeItemBuy) {
+        if (item.numberItem > 1) {
+            item.numberItem--;
+
+            if (totalBuyFinish) {
+                var totalPrice: number = parseFloat(item.price);
+
+                if (!isNaN(totalPrice)) {
+                    var valorASubtrair: number = totalPrice;
+                    var sub: number = parseFloat(totalBuyFinish) - valorASubtrair;
+
+                    setTotalBuyFinish(sub.toString())
+                }
+            }
         }
     }
 
-    function AdcItem() {
-        if (addItem >= 0) {
-            setAddItem(addItem + 1);
+
+    function AdcItemCar(item: TypeItemBuy) {
+        if (item.numberItem >= 0) {
+            item.numberItem++;
+
+
+            var totalPrice: number = parseFloat(item.price);
+
+
+            var valorASubtrair: number = totalPrice;
+            var sub: number = parseFloat(totalBuyFinish) + valorASubtrair;
+
+            setTotalBuyFinish(sub.toString())
+
+
         }
     }
 
+    function FinishBuy() {
+
+    }
+
+
+    function CancelItem(item: TypeItemBuy) {
+
+        var itemStorage = localStorage.getItem('compraItem');
+
+
+        if (itemStorage !== null) {
+
+            const value: TypeItemBuy[] = JSON.parse(itemStorage) as TypeItemBuy[];
+
+            console.log(value.length)
+
+
+            for (let i = 0; i < value.length; i++) {
+                if (value[i].name == item.name) {
+
+                    value.splice(i, 1);
+                    
+                }
+                // console.log(value[i].name == item.name)
+                // console.log(value[i].name)
+                // console.log(item.name)
+
+            }
+             localStorage.setItem('compraItem', JSON.stringify(value));
+
+        }
+    }
 
 
     return (
@@ -130,14 +198,13 @@ export default function Header() {
                                     <p>Total:</p>
                                 </div>
                                 <div className='valueBuy'>
-                                    <p>R$798</p>
+                                    <p>R${totalBuyFinish}</p>
 
                                 </div>
 
                             </div>
                             <div className='buttonBuy'>
-                                <button>Finalizar Compra</button>
-
+                                <button onClick={FinishBuy}>Finalizar Compra</button>
                             </div>
 
                         </div>
@@ -146,23 +213,33 @@ export default function Header() {
 
 
                         {itemBuyConvert.length >= 1 ?
-                            itemBuyConvert.map((item) => {
+                            itemBuyConvert.map((item: TypeItemBuy) => {
                                 return (
 
                                     <div className='itensBuy' key={item.id}>
+
+                                        <aside>
+                                            <button onClick={() => CancelItem(item)}>
+                                                <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M21.63 22.8113L12.81 11.4713L21.126 0.719309H17.85L11.214 9.37131L4.578 0.719309H1.218L9.534 11.4713L0.798 22.8113H4.158L11.214 13.5713L18.228 22.8113H21.63Z" fill="black" />
+                                                </svg>
+                                            </button>
+                                        </aside>
+
                                         <figure>
-                                            <img src={item.photo} />
+                                            <img src={item.photo} alt='product' />
                                             <p>{item.name}</p>
                                         </figure>
 
                                         <main>
 
                                             <article>
+
                                                 <div className='increment'>
 
-                                                    <button onClick={RemoveItem}> - </button>
-                                                    {addItem}
-                                                    <button onClick={AdcItem}> + </button>
+                                                    <button onClick={() => RemoveItemCar(item)} > - </button>
+                                                    {item.numberItem}
+                                                    <button onClick={() => AdcItemCar(item)}> + </button>
                                                 </div>
                                             </article>
 
