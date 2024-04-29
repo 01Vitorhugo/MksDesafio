@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './api.css'
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
@@ -22,14 +21,14 @@ export default function Api() {
     if (isLoading) {
         return (
             <div className='boxObeject'>
-                <Skeleton width={300} height={400} borderRadius={8}/>
-                <Skeleton width={300} height={400} borderRadius={8}/>
-                <Skeleton width={300} height={400} borderRadius={8}/>
-                <Skeleton width={300} height={400} borderRadius={8}/>
-                <Skeleton width={300} height={400} borderRadius={8}/>
-                <Skeleton width={300} height={400} borderRadius={8}/>
-                <Skeleton width={300} height={400} borderRadius={8}/>
-                <Skeleton width={300} height={400} borderRadius={8}/>
+                <Skeleton width={300} height={400} borderRadius={8} />
+                <Skeleton width={300} height={400} borderRadius={8} />
+                <Skeleton width={300} height={400} borderRadius={8} />
+                <Skeleton width={300} height={400} borderRadius={8} />
+                <Skeleton width={300} height={400} borderRadius={8} />
+                <Skeleton width={300} height={400} borderRadius={8} />
+                <Skeleton width={300} height={400} borderRadius={8} />
+                <Skeleton width={300} height={400} borderRadius={8} />
 
 
             </div>

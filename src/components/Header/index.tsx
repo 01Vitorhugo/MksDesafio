@@ -25,7 +25,7 @@ export default function Header() {
     const [itemBuyConvert, setItemBuyConvert] = useState<TypeItemBuy[]>([]);
     const [totalBuyFinish, setTotalBuyFinish] = useState('')
     const [numberItemButton, setNumberItemButton] = useState(1)
-    const [isLoadingPage, setIsLoadingPage] = useState(true);
+
 
 
 
