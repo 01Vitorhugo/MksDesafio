@@ -1,5 +1,9 @@
+import { useState } from 'react';
 import './api.css'
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
+import Skeleton from '../Skeleton';
+
 
 
 export default function Api() {
@@ -16,8 +20,24 @@ export default function Api() {
 
     })
     if (isLoading) {
-        return <div>Carregando...</div>;
+        return (
+            <div className='boxObeject'>
+                <Skeleton width={300} height={350} borderRadius={8}/>
+                <div className='object'>
+                <Skeleton width={300} height={900}/>
+                <Skeleton width={300} height={900}/>
+                <Skeleton width={300} height={900}/>
+                <Skeleton width={300} height={900}/>
+
+                </div>
+
+              
+
+
+            </div>
+        )
     }
+
     if (isError) {
         return <div>Ocorreu um erro ao carregar os dados.</div>;
     }
@@ -45,7 +65,6 @@ export default function Api() {
         if (itemSalvos !== '') {
             let itemJson: ArrayObject[] = JSON.parse(itemSalvos);
 
-            console.log(itemJson.indexOf(item))
 
             let existe: boolean = false;
 
@@ -53,6 +72,7 @@ export default function Api() {
 
                 if (valor.name === item.name) {
                     existe = true;
+                    toast.error('Produto já adicionado');
 
                 }
             })
@@ -61,6 +81,12 @@ export default function Api() {
                 itemJson.push(item);
                 localStorage.setItem("compraItem", JSON.stringify(itemJson));
 
+                setTimeout(() => {
+                    window.location.reload();
+
+                }, 800)
+
+                toast.success('Produto adicionado no carrinho');
             }
 
         } else {
@@ -75,6 +101,7 @@ export default function Api() {
 
     return (
         <div className='boxObeject'>
+
 
             {
                 data.products.map((item: ArrayObject) => (
@@ -109,6 +136,7 @@ export default function Api() {
                     </div>
                 ))
             }
+
         </div>
 
 
