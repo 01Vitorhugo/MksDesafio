@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './header.css';
 import { motion } from "framer-motion"
+import { toast } from "react-toastify";
+
 
 
 
@@ -22,6 +24,9 @@ export default function Header() {
     const [boxCar, setBoxCar] = useState(false);
     const [itemBuyConvert, setItemBuyConvert] = useState<TypeItemBuy[]>([]);
     const [totalBuyFinish, setTotalBuyFinish] = useState('')
+    const [numberItemButton, setNumberItemButton] = useState(1)
+    const [isLoadingPage, setIsLoadingPage] = useState(true);
+
 
 
     useEffect(() => {
@@ -31,6 +36,7 @@ export default function Header() {
         if (dadosLocalStorage) {
             const dados: TypeItemBuy[] = JSON.parse(dadosLocalStorage);
             setItemBuyConvert(dados);
+
 
             var priceTotal = 0.0;
             dados.forEach(item => {
@@ -46,10 +52,9 @@ export default function Header() {
 
         }
 
+
+
     }, []);
-
-
-
 
 
     // Variantes para animacao na lista
@@ -80,8 +85,9 @@ export default function Header() {
 
 
     function RemoveItemCar(item: TypeItemBuy) {
-        if (item.numberItem > 1) {
-            item.numberItem--;
+        if (item.numberItem >= 0) {
+            setNumberItemButton(  numberItemButton - item.numberItem );
+           
 
             if (totalBuyFinish) {
                 var totalPrice: number = parseFloat(item.price);
@@ -99,7 +105,8 @@ export default function Header() {
 
     function AdcItemCar(item: TypeItemBuy) {
         if (item.numberItem >= 0) {
-            item.numberItem++;
+            setNumberItemButton( numberItemButton + item.numberItem);
+           
 
 
             var totalPrice: number = parseFloat(item.price);
@@ -113,37 +120,38 @@ export default function Header() {
 
         }
     }
-
     function FinishBuy() {
+
+
+        setTimeout(() => {
+            toast.success('Compra realizada com sucesso');
+        }, 100);
+
+        localStorage.clear();
+        setItemBuyConvert([]);
 
     }
 
 
     function CancelItem(item: TypeItemBuy) {
 
+
         var itemStorage = localStorage.getItem('compraItem');
 
-
         if (itemStorage !== null) {
-
             const value: TypeItemBuy[] = JSON.parse(itemStorage) as TypeItemBuy[];
 
-            console.log(value.length)
+            const updatedValue = value.filter((itemValue) => itemValue.name !== item.name);
+            var num: number = 0;
 
+            setItemBuyConvert(updatedValue);
 
-            for (let i = 0; i < value.length; i++) {
-                if (value[i].name == item.name) {
-
-                    value.splice(i, 1);
-                    
-                }
-                // console.log(value[i].name == item.name)
-                // console.log(value[i].name)
-                // console.log(item.name)
-
+            for (let i = 0; i < updatedValue.length; i++) {
+                num += parseFloat(updatedValue[i].price);
             }
-             localStorage.setItem('compraItem', JSON.stringify(value));
+            setTotalBuyFinish(num.toString());
 
+            localStorage.setItem('compraItem', JSON.stringify(updatedValue));
         }
     }
 
@@ -191,78 +199,95 @@ export default function Header() {
 
 
                         </div>
-                        <div className='totalButton'>
-
-                            <div className='total'>
-                                <div className='totalPrice'>
-                                    <p>Total:</p>
-                                </div>
-                                <div className='valueBuy'>
-                                    <p>R${totalBuyFinish}</p>
-
-                                </div>
-
-                            </div>
-                            <div className='buttonBuy'>
-                                <button onClick={FinishBuy}>Finalizar Compra</button>
-                            </div>
-
-                        </div>
 
 
 
 
-                        {itemBuyConvert.length >= 1 ?
-                            itemBuyConvert.map((item: TypeItemBuy) => {
-                                return (
+                        {
+                            itemBuyConvert.length >= 1 ?
 
-                                    <div className='itensBuy' key={item.id}>
+                                <div className='totalButton'>
 
-                                        <aside>
-                                            <button onClick={() => CancelItem(item)}>
-                                                <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M21.63 22.8113L12.81 11.4713L21.126 0.719309H17.85L11.214 9.37131L4.578 0.719309H1.218L9.534 11.4713L0.798 22.8113H4.158L11.214 13.5713L18.228 22.8113H21.63Z" fill="black" />
-                                                </svg>
-                                            </button>
-                                        </aside>
+                                    <div className='total'>
+                                        <div className='totalPrice'>
 
-                                        <figure>
-                                            <img src={item.photo} alt='product' />
-                                            <p>{item.name}</p>
-                                        </figure>
+                                            <p>Total:</p>
+                                        </div>
+                                        <div className='valueBuy'>
+                                            <p>R${totalBuyFinish}</p>
 
-                                        <main>
-
-                                            <article>
-
-                                                <div className='increment'>
-
-                                                    <button onClick={() => RemoveItemCar(item)} > - </button>
-                                                    {item.numberItem}
-                                                    <button onClick={() => AdcItemCar(item)}> + </button>
-                                                </div>
-                                            </article>
-
-                                            <article>
-                                                <div className='priceProduct'>
-                                                    <p>R${item.price.slice(0, -3)}</p>
-                                                </div>
-
-                                            </article>
-
-                                        </main>
-
-
+                                        </div>
 
                                     </div>
 
-                                )
+                                    <div className='buttonBuy'>
+                                        <button onClick={FinishBuy}>Finalizar Compra</button>
+                                    </div>
 
-                            })
-                            :
-                            <h1>Nenhum item encontrado</h1>
+                                </div>
+
+                                :
+                                <div className='ofItensCar'>
+
+                                    <h1>Carrinho vazio 😞</h1>
+                                </div>
 
                         }
+
+
+                        <div className='mainItensBuy'>
+                            {itemBuyConvert.length >= 1 &&
+                                itemBuyConvert.map((item: TypeItemBuy) => {
+                                    return (
+
+
+
+                                        <div className='itensBuy' key={item.id}>
+
+                                            <aside>
+                                                <button onClick={() => CancelItem(item)}>
+                                                    <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M21.63 22.8113L12.81 11.4713L21.126 0.719309H17.85L11.214 9.37131L4.578 0.719309H1.218L9.534 11.4713L0.798 22.8113H4.158L11.214 13.5713L18.228 22.8113H21.63Z" fill="black" />
+                                                    </svg>
+                                                </button>
+                                            </aside>
+
+                                            <figure>
+                                                <img src={item.photo} alt='product' />
+                                                <p>{item.name}</p>
+                                            </figure>
+
+                                            <main>
+
+                                                <article>
+
+                                                    <div className='increment'>
+
+                                                        <button onClick={() => RemoveItemCar(item)} > - </button>
+                                                        {numberItemButton}
+                                                        <button onClick={() => AdcItemCar(item)}> + </button>
+                                                    </div>
+                                                </article>
+
+                                                <article>
+                                                    <div className='priceProduct'>
+                                                        <p>R${item.price.slice(0, -3)}</p>
+                                                    </div>
+
+                                                </article>
+
+                                            </main>
+
+
+
+                                        </div>
+
+                                    )
+
+                                })
+                            }
+                        </div>
+
 
 
 
@@ -287,7 +312,7 @@ export default function Header() {
 
             </ul>
 
-        </nav>
+        </nav >
 
 
     )
