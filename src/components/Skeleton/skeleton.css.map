@@ -1,1 +1,1 @@
-{"version":3,"sources":["skeleton.scss","skeleton.css"],"names":[],"mappings":"AAAA;EACI,gHAAA;EASI,0BAAA;EACA,4CAAA;ACPR;ADSQ;EACI;IACI,0BAAA;ECPd;EDSU;IACI,6BAAA;ECPd;AACF","file":"skeleton.css"}
+{"version":3,"sources":["skeleton.scss","skeleton.css"],"names":[],"mappings":"AAAA;EACI,YAAA;EAEA,gHAAA;EASI,0BAAA;EACA,4CAAA;ACRR;ADUQ;EACI;IACI,0BAAA;ECRd;EDUU;IACI,6BAAA;ECRd;AACF","file":"skeleton.css"}

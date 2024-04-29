@@ -22,16 +22,14 @@ export default function Api() {
     if (isLoading) {
         return (
             <div className='boxObeject'>
-                <Skeleton width={300} height={350} borderRadius={8}/>
-                <div className='object'>
-                <Skeleton width={300} height={900}/>
-                <Skeleton width={300} height={900}/>
-                <Skeleton width={300} height={900}/>
-                <Skeleton width={300} height={900}/>
-
-                </div>
-
-              
+                <Skeleton width={300} height={400} borderRadius={8}/>
+                <Skeleton width={300} height={400} borderRadius={8}/>
+                <Skeleton width={300} height={400} borderRadius={8}/>
+                <Skeleton width={300} height={400} borderRadius={8}/>
+                <Skeleton width={300} height={400} borderRadius={8}/>
+                <Skeleton width={300} height={400} borderRadius={8}/>
+                <Skeleton width={300} height={400} borderRadius={8}/>
+                <Skeleton width={300} height={400} borderRadius={8}/>
 
 
             </div>
@@ -126,7 +124,6 @@ export default function Api() {
                                 <path opacity="0.737212" d="M1.62845 5.41404H15.445" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 <path opacity="0.737212" d="M11.9908 8.43509C11.9908 9.86522 10.6377 11.0246 8.96847 11.0246C7.29927 11.0246 5.94611 9.86522 5.94611 8.43509" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-
 
                             <p>COMPRAR</p>
                         </button>
