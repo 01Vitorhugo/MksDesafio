@@ -40,10 +40,13 @@ nav ul .carTrue {
   align-items: center;
   flex-direction: column;
   padding: 0 25px;
-  overflow: hidden;
   z-index: 100;
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1333333333);
   position: relative;
+}
+nav ul .carTrue .ofItensCar {
+  margin-top: 200px;
+  color: #fff;
 }
 nav ul .carTrue .boxTitleToogle {
   position: relative;
@@ -71,7 +74,14 @@ nav ul .carTrue .boxTitleToogle button {
   top: 20px;
   cursor: pointer;
 }
-nav ul .carTrue .itensBuy {
+nav ul .carTrue .mainItensBuy {
+  /* background-color: #000; */
+  width: 100%;
+  height: 740px;
+  overflow: auto;
+  border-radius: 8px;
+}
+nav ul .carTrue .mainItensBuy .itensBuy {
   width: 100%;
   height: 220px;
   background-color: #FFF;
@@ -83,15 +93,16 @@ nav ul .carTrue .itensBuy {
   flex-direction: column;
   position: relative;
 }
-nav ul .carTrue .itensBuy aside {
+nav ul .carTrue .mainItensBuy .itensBuy aside {
   position: absolute;
   right: 15px;
   top: 15px;
 }
-nav ul .carTrue .itensBuy aside button {
+nav ul .carTrue .mainItensBuy .itensBuy aside button {
   background-color: transparent;
+  cursor: pointer;
 }
-nav ul .carTrue .itensBuy figure {
+nav ul .carTrue .mainItensBuy .itensBuy figure {
   width: 100%;
   height: 60%;
   padding: 5px 0;
@@ -101,22 +112,22 @@ nav ul .carTrue .itensBuy figure {
   align-items: center;
   flex-direction: column;
 }
-nav ul .carTrue .itensBuy figure img {
+nav ul .carTrue .mainItensBuy .itensBuy figure img {
   height: 96px;
 }
-nav ul .carTrue .itensBuy figure p {
+nav ul .carTrue .mainItensBuy .itensBuy figure p {
   font-weight: 400;
   font-size: 16px;
   margin-top: 5px;
 }
-nav ul .carTrue .itensBuy main {
+nav ul .carTrue .mainItensBuy main {
   width: 100%;
   height: 40%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-nav ul .carTrue .itensBuy main article {
+nav ul .carTrue .mainItensBuy main article {
   /* background-color: aqua; */
   height: 100%;
   width: 50%;
@@ -124,7 +135,7 @@ nav ul .carTrue .itensBuy main article {
   justify-content: center;
   align-items: center;
 }
-nav ul .carTrue .itensBuy main article .increment {
+nav ul .carTrue .mainItensBuy main article .increment {
   width: 97px;
   height: 35px;
   border: solid 1px rgba(191, 191, 191, 0.5);
@@ -133,21 +144,21 @@ nav ul .carTrue .itensBuy main article .increment {
   justify-content: space-evenly;
   align-items: center;
 }
-nav ul .carTrue .itensBuy main article .increment button:nth-child(1) {
+nav ul .carTrue .mainItensBuy main article .increment button:nth-child(1) {
   width: 32px;
   font-size: 24px;
   border-right: 0.2px rgba(191, 191, 191, 0.5) solid;
   background-color: transparent;
   cursor: pointer;
 }
-nav ul .carTrue .itensBuy main article .increment button:nth-child(2) {
+nav ul .carTrue .mainItensBuy main article .increment button:nth-child(2) {
   width: 32px;
   font-size: 24px;
   border-left: 0.2px rgba(191, 191, 191, 0.5) solid;
   background-color: transparent;
   cursor: pointer;
 }
-nav ul .carTrue .itensBuy .priceProduct {
+nav ul .carTrue .mainItensBuy .priceProduct {
   width: 84px;
   height: 35px;
   border-radius: 5px;
@@ -156,7 +167,7 @@ nav ul .carTrue .itensBuy .priceProduct {
   justify-content: center;
   align-items: center;
 }
-nav ul .carTrue .itensBuy .priceProduct p {
+nav ul .carTrue .mainItensBuy .priceProduct p {
   font-weight: 700;
   font-size: 15px;
   color: #fff;
@@ -211,6 +222,7 @@ nav ul .carTrue .totalButton .buttonBuy button {
   font-weight: 700;
   font-size: 20px;
   color: #fff;
+  cursor: pointer;
 }
 nav ul .carFalse {
   display: flex;
@@ -234,4 +246,174 @@ nav ul .carFalse button p {
   font-weight: 700;
   font-size: 12px;
   color: #000;
+}
+
+@media (min-width: 600px) {
+  .boxTitleToogle button {
+    margin-right: 20px;
+  }
+}
+@media (min-width: 600px) {
+  .boxTitleToogle article {
+    padding-left: 20px;
+  }
+  .boxTitleToogle button {
+    margin-right: 30px;
+  }
+}
+@media (min-width: 1180px) {
+  .mainItensBuy::-webkit-scrollbar {
+    width: 0;
+  }
+  .mainItensBuy {
+    width: 80% !important;
+    height: 700px !important;
+    /* overflow: hidden !important; */
+    scrollbar-width: none;
+  }
+  .mainItensBuy .itensBuy {
+    display: flex !important;
+    justify-content: space-around !important;
+    flex-direction: row !important;
+    margin: 35px 0;
+  }
+  .mainItensBuy .itensBuy figure {
+    width: 50% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 20px;
+  }
+  .mainItensBuy .itensBuy figure img {
+    height: 160px !important;
+  }
+  .mainItensBuy .itensBuy figure p {
+    font-weight: 400;
+    font-size: 20px !important;
+  }
+  .mainItensBuy .itensBuy main {
+    width: auto !important;
+    width: 50% !important;
+    height: 100% !important;
+  }
+  .mainItensBuy .itensBuy main article .increment {
+    position: absolute;
+  }
+  .mainItensBuy .itensBuy main article .increment::before {
+    content: "Qtd:";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 12px;
+  }
+  .mainItensBuy .itensBuy main article .priceProduct {
+    background-color: transparent;
+  }
+  .mainItensBuy .itensBuy main article .priceProduct p {
+    color: #000;
+    font-size: 18px;
+    font-weight: 800;
+  }
+  .mainItensBuy .itensBuy {
+    width: 100px;
+  }
+}
+.boxTitleToogle article {
+  padding-left: 50px;
+}
+.boxTitleToogle button {
+  margin-right: 50px;
+}
+
+@media (min-width: 1250px) {
+  .App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  nav {
+    height: 101px;
+  }
+  nav ul .logo {
+    padding-left: 60px;
+  }
+  nav ul .logo h1 {
+    font-size: 50px;
+  }
+  nav ul .carFalse button {
+    height: 40px;
+    width: 80px;
+    font-size: 16px;
+  }
+  .boxObeject {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 938px;
+    margin-top: 150px;
+  }
+  .boxObeject .object {
+    height: 385px;
+    width: 217px;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    margin: 10px;
+  }
+  .boxTitleToogle article {
+    padding-left: 90px;
+  }
+  .boxTitleToogle button {
+    margin-right: 90px;
+  }
+}
+@media (min-width: 1700px) {
+  .App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  nav ul .logo {
+    padding-left: 60px;
+  }
+  nav ul .logo h1 {
+    font-size: 50px;
+  }
+  nav ul .carFalse button {
+    height: 40px;
+    width: 80px;
+    font-size: 16px;
+  }
+  .boxObeject {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 70%;
+    margin-top: 150px;
+  }
+  .boxObeject .object {
+    height: 485px;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    margin: 10px;
+  }
+  .boxObeject .object article h1 {
+    font-size: 20px;
+  }
+  .boxObeject .object article p:nth-child(1) {
+    /* background-color: #090a0a; */
+    font-size: 12px;
+    margin-top: 20px;
+  }
+  .boxObeject .object button {
+    height: 50px;
+    font-size: 16px;
+  }
+  .boxTitleToogle article {
+    padding-left: 90px;
+  }
+  .boxTitleToogle button {
+    margin-right: 90px;
+  }
 }/*# sourceMappingURL=header.css.map */
