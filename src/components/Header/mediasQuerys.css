@@ -1,0 +1,303 @@
+@charset "UTF-8";
+/* TELAS 375PX */
+@media (max-width: 375px) and (max-height: 667px) {
+  .boxTitleToogle article {
+    width: 100% !important;
+    margin: 0 !important;
+    height: 100%;
+  }
+  .boxTitleToogle button {
+    right: -20px !important;
+  }
+  .carTrue .mainItensBuy {
+    height: 420px !important;
+  }
+}
+@media (max-width: 375px) and (min-height: 668px) and (max-height: 812px) {
+  .boxTitleToogle article {
+    width: 100% !important;
+    margin: 0 !important;
+    height: 100%;
+  }
+  .boxTitleToogle button {
+    right: -20px !important;
+  }
+  .carTrue .mainItensBuy {
+    height: 560px !important;
+  }
+}
+/* TELAS 375PX */
+/* TELAS 390PX */
+@media (min-width: 376px) and (max-width: 390px) and (max-height: 844px) {
+  .carTrue .mainItensBuy {
+    height: 600px !important;
+  }
+}
+/* TELAS 390PX */
+/* TELAS ATÉ 414PX */
+@media (min-width: 391px) and (max-width: 414px) and (max-height: 896px) {
+  .carTrue .mainItensBuy {
+    height: 650px !important;
+  }
+}
+/* TELAS ATÉ 414PX */
+/* TELAS ATÉ 430PX */
+@media (min-width: 415px) and (max-width: 430px) and (max-height: 932px) {
+  .carTrue .mainItensBuy {
+    height: 680px !important;
+  }
+}
+/* TELAS ATÉ 430PX */
+/* @media (max-width: 600px) {
+    .boxTitleToogle {
+
+
+        article {
+            padding-left: 20px;
+        }
+
+        button {
+            margin-right: 30px;
+        }
+    }
+} */
+/* 
+@media (min-width: 1180px) {
+    .mainItensBuy::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .mainItensBuy {
+        width: 80% !important;
+        height: 700px !important;
+        scrollbar-width: none;
+
+
+
+        .itensBuy {
+            display: flex !important;
+            justify-content: space-around !important;
+            flex-direction: row !important;
+            margin: 35px 0;
+
+            figure {
+                width: 50% !important;
+                height: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 20px;
+
+                img {
+                    height: 160px !important;
+                }
+
+                p {
+                    font-weight: 400;
+                    font-size: 20px !important;
+                }
+
+            }
+
+            main {
+                width: auto !important;
+                width: 50% !important;
+                height: 100% !important;
+
+                article {
+                    .increment {
+                        position: absolute;
+                    }
+
+                    .increment::before {
+                        content: 'Qtd:';
+                        position: absolute;
+                        top: -20px;
+                        left: 0;
+                        font-size: 12px;
+
+
+                    }
+
+                    .priceProduct {
+                        background-color: transparent;
+
+                        p {
+                            color: #000;
+                            font-size: 18px;
+                            font-weight: 800;
+                        }
+
+                    }
+                }
+            }
+        }
+
+
+
+        .itensBuy {
+            width: 100px;
+
+        }
+
+    }
+}
+
+.boxTitleToogle {
+
+    article {
+        padding-left: 50px;
+    }
+
+    button {
+        margin-right: 50px;
+    }
+}
+
+@media (min-width: 1250px) {
+    .App {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    nav {
+        height: 101px;
+
+        ul {
+            .logo {
+                padding-left: 60px;
+
+                h1 {
+
+                    font-size: 50px;
+                }
+            }
+
+            .carFalse {
+
+
+                button {
+                    height: 40px;
+                    width: 80px;
+                    font-size: 16px;
+
+                }
+            }
+        }
+    }
+
+    .boxObeject {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 938px;
+        margin-top: 150px;
+
+        .object {
+            height: 385px;
+            width: 217px;
+            width: calc(33.33% - 20px);
+
+            box-sizing: border-box;
+            margin: 10px;
+
+
+        }
+
+    }
+
+
+    .boxTitleToogle {
+
+        article {
+            padding-left: 90px;
+        }
+
+        button {
+            margin-right: 90px;
+        }
+    }
+}
+
+@media (min-width: 1700px) {
+    .App {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    nav {
+
+
+        ul {
+            .logo {
+                padding-left: 60px;
+
+                h1 {
+
+                    font-size: 50px;
+                }
+            }
+
+            .carFalse {
+
+
+                button {
+                    height: 40px;
+                    width: 80px;
+                    font-size: 16px;
+
+                }
+            }
+        }
+    }
+
+    .boxObeject {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 70%;
+        margin-top: 150px;
+
+        .object {
+            height: 485px;
+            width: calc(33.33% - 20px);
+
+            box-sizing: border-box;
+            margin: 10px;
+
+            article {
+
+                h1 {
+                    font-size: 20px;
+                }
+
+                p:nth-child(1) {
+                    font-size: 12px;
+                    margin-top: 20px;
+                }
+            }
+
+            button {
+                height: 50px;
+                font-size: 16px;
+            }
+
+        }
+
+
+    }
+
+    .boxTitleToogle {
+
+        article {
+            padding-left: 90px;
+        }
+
+        button {
+            margin-right: 90px;
+        }
+    }
+} *//*# sourceMappingURL=mediasQuerys.css.map */
