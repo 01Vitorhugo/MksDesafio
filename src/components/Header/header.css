@@ -40,6 +40,7 @@ nav ul .carTrue {
   align-items: center;
   flex-direction: column;
   padding: 0 25px;
+  gap: 5px;
   z-index: 100;
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1333333333);
   position: relative;
@@ -50,14 +51,13 @@ nav ul .carTrue .ofItensCar {
 }
 nav ul .carTrue .boxTitleToogle {
   position: relative;
-  height: auto;
-  width: 110%;
+  height: 12%;
+  width: 100%;
   display: flex;
 }
 nav ul .carTrue .boxTitleToogle article {
-  width: 70%;
-  height: 80px;
-  margin-left: 20px;
+  width: 100%;
+  height: 100%;
   padding-top: 20px;
 }
 nav ul .carTrue .boxTitleToogle article p {
@@ -75,9 +75,8 @@ nav ul .carTrue .boxTitleToogle button {
   cursor: pointer;
 }
 nav ul .carTrue .mainItensBuy {
-  /* background-color: #000; */
   width: 100%;
-  height: 740px;
+  height: 70%;
   overflow: auto;
   border-radius: 8px;
 }
@@ -176,13 +175,13 @@ nav ul .carTrue .totalButton {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: auto;
+  height: 15%;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 nav ul .carTrue .totalButton .total {
-  height: 98px;
+  height: 50%;
   width: 100%;
   display: flex;
 }
@@ -211,7 +210,7 @@ nav ul .carTrue .totalButton .total .valueBuy p {
   color: #fff;
 }
 nav ul .carTrue .totalButton .buttonBuy {
-  height: 65px;
+  height: 50%;
   width: 100%;
   background-color: #000;
 }
