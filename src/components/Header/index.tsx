@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import './header.css';
-import './mediasQuerys.css';
 import { motion } from "framer-motion"
 import { toast } from "react-toastify";
 
@@ -288,10 +287,6 @@ export default function Header() {
                                 })
                             }
                         </div>
-
-
-
-
 
                     </motion.li>
                     :
