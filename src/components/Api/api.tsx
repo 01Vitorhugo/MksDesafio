@@ -5,8 +5,8 @@ import Skeleton from '../Skeleton';
 
 
 
-export default function Api() {
 
+export default function Api() {
 
     const { data, isLoading, isError } = useQuery({
         queryKey: ['todos'],
@@ -18,8 +18,19 @@ export default function Api() {
                 ),
 
     })
+
+    
+
     if (isLoading) {
         return (
+            <>
+              <nav>
+                <Skeleton width={250} height={30} borderRadius={8} />
+                <Skeleton width={0} height={0} borderRadius={80} />
+                <Skeleton width={0} height={0} borderRadius={0} />
+                <Skeleton width={50} height={30} borderRadius={8} />
+            </nav>
+
             <div className='boxObeject'>
                 <Skeleton width={300} height={400} borderRadius={8} />
                 <Skeleton width={300} height={400} borderRadius={8} />
@@ -30,10 +41,13 @@ export default function Api() {
                 <Skeleton width={300} height={400} borderRadius={8} />
                 <Skeleton width={300} height={400} borderRadius={8} />
 
-
             </div>
+
+            </>
         )
     }
+    
+
 
     if (isError) {
         return <div>Ocorreu um erro ao carregar os dados.</div>;
@@ -80,10 +94,11 @@ export default function Api() {
 
                 setTimeout(() => {
                     window.location.reload();
+                    
+                }, 100)
+                // toast.success('Produto adicionado no carrinho');
 
-                }, 800)
-
-                toast.success('Produto adicionado no carrinho');
+                
             }
 
         } else {
