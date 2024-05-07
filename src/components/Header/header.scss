@@ -1,3 +1,14 @@
+
+::-webkit-scrollbar-thumb {
+    background-color: #00000075;
+    border-radius: 3px; 
+
+  }
+  ::-webkit-scrollbar{
+    width: 5px;
+    padding-left: 20px;
+  }
+  
 nav {
     height: 48px;
     width: 100%;
@@ -53,6 +64,7 @@ nav {
             flex-direction: column;
             padding: 0 25px;   
             gap: 5px;
+          
 
             z-index: 100;
 
@@ -109,19 +121,18 @@ nav {
             }
 
             .mainItensBuy {
-                
                 width: 100%;
 
                 height: 70%;
                 overflow: auto;
-                border-radius: 8px;
+                border-radius: 8px; 
 
 
                 .itensBuy {
                     width: 100%;
                     height: 220px;
                     background-color: #FFF;
-                    border-radius: 8px;
+                    border-radius: 8px; 
 
                     box-shadow: 0px 2px 8px 0px #00000022;
 
@@ -142,6 +153,8 @@ nav {
                             background-color: transparent;
                             cursor: pointer;
                         }
+
+                       
                     }
 
 
@@ -242,6 +255,8 @@ nav {
                         color: #fff;
                     }
                 }
+
+                
             }
 
 
