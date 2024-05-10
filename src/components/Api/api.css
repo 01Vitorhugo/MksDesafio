@@ -78,4 +78,17 @@
 }
 .boxObeject .object button p {
   font-weight: 600;
+}
+
+@media (min-width: 1200px) {
+  .boxObeject {
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    gap: 10px;
+  }
+  .boxObeject .object {
+    width: 20%;
+    height: 285px;
+  }
 }/*# sourceMappingURL=api.css.map */

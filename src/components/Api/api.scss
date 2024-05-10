@@ -1,3 +1,4 @@
+
 .boxObeject {
 
     display: flex;
@@ -110,4 +111,27 @@
         }
 
     }
+}
+
+
+@media (min-width: 1200px) {
+        .boxObeject{
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+             flex-direction: row;
+             flex-wrap: wrap;
+             height: auto;
+            //  width: 90%;
+
+            // background-color: #373737;
+            gap: 10px;
+
+
+            .object{
+                // background-color: aqua;
+                width: 20%;
+                height: 285px;
+            }
+        }
 }
