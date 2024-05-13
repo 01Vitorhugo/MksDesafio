@@ -80,15 +80,24 @@
   font-weight: 600;
 }
 
-@media (min-width: 1200px) {
-  .boxObeject {
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: auto;
-    gap: 10px;
-  }
-  .boxObeject .object {
-    width: 20%;
-    height: 285px;
-  }
-}/*# sourceMappingURL=api.css.map */
+ @media (min-width: 1200px) {
+        .boxObeject{
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             flex-direction: row;
+             flex-wrap: wrap;
+             height: auto;
+              width: 90%;
+
+             /* background-color: #373737; */
+            gap: 10px;
+
+
+            .object{
+                 /* background-color: aqua; */
+                width: 20%;
+                height: 285px;
+            }
+        }
+} /*# sourceMappingURL=api.css.map */
