@@ -1,4 +1,4 @@
-
+import './App.css';
 import Api from "./components/Api/api";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -15,7 +15,6 @@ function App() {
 
     
       <Footer/>
-     
     </div>
   );
 }
