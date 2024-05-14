@@ -262,4 +262,46 @@ nav ul .carFalse button p {
     margin-top: 25px;
     margin-bottom: 90px;
   }
+}
+@media (min-width: 1200px) {
+  .mainItensBuy .itensBuy {
+    flex-wrap: wrap;
+  }
+  .mainItensBuy .itensBuy figure {
+    height: 100% !important;
+    width: 50% !important;
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
+  }
+  .mainItensBuy .itensBuy figure img {
+    height: 150px !important;
+  }
+  .mainItensBuy .itensBuy figure p {
+    font-size: 20px !important;
+  }
+  .mainItensBuy .itensBuy main {
+    height: 100% !important;
+    width: 50% !important;
+  }
+  .mainItensBuy .itensBuy main article .increment {
+    position: relative;
+    height: 45px !important;
+    width: 120px !important;
+    border-radius: 10% !important;
+  }
+  .mainItensBuy .itensBuy main article .increment button::before {
+    content: "Qtd:";
+    position: absolute;
+    top: -30px;
+    left: 0;
+    font-weight: 300;
+    font-size: 16px;
+  }
+  .mainItensBuy .itensBuy main article .priceProduct {
+    background-color: transparent;
+  }
+  .mainItensBuy .itensBuy main article .priceProduct p {
+    color: #000 !important;
+    font-size: 26px !important;
+  }
 }/*# sourceMappingURL=header.css.map */
