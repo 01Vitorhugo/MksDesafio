@@ -13,40 +13,33 @@ export default function Api() {
         queryFn: () =>
             fetch('https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=DESC')
                 .then((res) => res.json()
-
-
                 ),
-
     })
-
-    
 
     if (isLoading) {
         return (
             <>
-              <nav>
-                <Skeleton width={250} height={30} borderRadius={8} />
-                <Skeleton width={0} height={0} borderRadius={80} />
-                <Skeleton width={0} height={0} borderRadius={0} />
-                <Skeleton width={50} height={30} borderRadius={8} />
-            </nav>
+                <nav>
+                    <Skeleton width={250} height={30} borderRadius={8} />
+                    <Skeleton width={70} height={30} borderRadius={8} /> 
 
-            <div className='boxObeject'>
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
+                </nav>
+               
+                <div className='boxObeject'>
+                    <Skeleton width={270} height={300} borderRadius={8} />
+                    <Skeleton width={270} height={300} borderRadius={8} />
+                    <Skeleton width={270} height={300} borderRadius={8} />
+                    <Skeleton width={270} height={300} borderRadius={8} />
+                    <Skeleton width={270} height={300} borderRadius={8} />
+                    <Skeleton width={270} height={300} borderRadius={8} />
+                    <Skeleton width={270} height={300} borderRadius={8} />
+                    <Skeleton width={270} height={300} borderRadius={8} />
 
-            </div>
-
+                </div>
             </>
         )
     }
-    
+
 
 
     if (isError) {
@@ -94,11 +87,10 @@ export default function Api() {
 
                 setTimeout(() => {
                     window.location.reload();
-                    
-                }, 100)
-                // toast.success('Produto adicionado no carrinho');
 
-                
+                }, 1000)
+                toast.success('Produto adicionado no carrinho');
+
             }
 
         } else {
@@ -109,8 +101,6 @@ export default function Api() {
         }
 
     }
-
-
     return (
         <div className='boxObeject'>
 
