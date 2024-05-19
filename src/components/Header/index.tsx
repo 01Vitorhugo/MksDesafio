@@ -85,27 +85,33 @@ export default function Header() {
 
 
     function RemoveItemCar(item: TypeItemBuy) {
-        if (item.numberItem >= 0) {
-            setNumberItemButton(  numberItemButton - item.numberItem );
-           
+        if (numberItemButton >= 0  && item.numberItem > 0) {
+
+            setNumberItemButton(  numberItemButton -1);
+            item.numberItem = item.numberItem -1;
+            
 
             if (totalBuyFinish) {
-                var totalPrice: number = parseFloat(item.price);
+                 var totalPrice: number = parseFloat(item.price);
 
-                if (!isNaN(totalPrice)) {
-                    var valorASubtrair: number = totalPrice;
-                    var sub: number = parseFloat(totalBuyFinish) - valorASubtrair;
+                 if (!isNaN(totalPrice)) {
+                     var valorASubtrair: number = totalPrice;
+                     var sub: number = parseFloat(totalBuyFinish) - valorASubtrair;
 
-                    setTotalBuyFinish(sub.toString())
-                }
-            }
+                     setTotalBuyFinish(sub.toString())
+                 }
+             }
+        }else{
+            setNumberItemButton(0)
+
         }
     }
 
 
     function AdcItemCar(item: TypeItemBuy) {
         if (item.numberItem >= 0) {
-            setNumberItemButton( numberItemButton + item.numberItem);
+            setNumberItemButton( numberItemButton +1);
+            item.numberItem = item.numberItem +1;
            
 
 
@@ -122,13 +128,20 @@ export default function Header() {
     }
     function FinishBuy() {
 
+         if(totalBuyFinish === '0'){
+             toast.error('Quantidade de itens insuficiente');
 
-        setTimeout(() => {
-            toast.success('Compra realizada com sucesso');
-        }, 100);
+         }else{
 
-        localStorage.clear();
-        setItemBuyConvert([]);
+             setTimeout(() => {
+                 toast.success('Compra realizada com sucesso');
+             }, 100);
+     
+             localStorage.clear();
+             setItemBuyConvert([]);
+         }
+
+
 
     }
 
@@ -264,7 +277,7 @@ export default function Header() {
                                                     <div className='increment'>
 
                                                         <button onClick={() => RemoveItemCar(item)} > - </button>
-                                                        {numberItemButton}
+                                                        {item.numberItem}
                                                         <button onClick={() => AdcItemCar(item)}> + </button>
                                                     </div>
                                                 </article>
