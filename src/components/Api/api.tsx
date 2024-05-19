@@ -13,10 +13,7 @@ export default function Api() {
         queryFn: () =>
             fetch('https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=DESC')
                 .then((res) => res.json()
-
-
                 ),
-
     })
 
 
@@ -43,8 +40,7 @@ export default function Api() {
                     <Skeleton width={300} height={400} borderRadius={8} />
                     <Skeleton width={300} height={400} borderRadius={8} />
 
-                </div>
-
+                    </div>
             </>
         )
     }
@@ -96,11 +92,11 @@ export default function Api() {
 
                 setTimeout(() => {
                     window.location.reload();
-
+                    
                 }, 100)
                 // toast.success('Produto adicionado no carrinho');
 
-
+                
             }
 
         } else {
@@ -111,8 +107,6 @@ export default function Api() {
         }
 
     }
-
-
     return (
         <div className='boxObeject'>
 
