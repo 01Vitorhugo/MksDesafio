@@ -19,34 +19,36 @@ export default function Api() {
 
     })
 
-    
+
 
     if (isLoading) {
         return (
-            <>
-              <nav>
-                <Skeleton width={250} height={30} borderRadius={8} />
-                <Skeleton width={0} height={0} borderRadius={80} />
-                <Skeleton width={0} height={0} borderRadius={0} />
-                <Skeleton width={50} height={30} borderRadius={8} />
-            </nav>
+            <> 
+            {/* Adicionando estilos para o Skeleton */}
+                <nav style={{ display: 'flex', justifyContent: 'space-between'}}>
 
-            <div className='boxObeject'>
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
-                <Skeleton width={300} height={400} borderRadius={8} />
+                        <Skeleton width={250} height={30} borderRadius={8} />
+                        <Skeleton width={70} height={30} borderRadius={8} />
 
-            </div>
+
+                </nav>
+
+                <div className='boxObeject'>
+                    <Skeleton width={300} height={400} borderRadius={8} />
+                    <Skeleton width={300} height={400} borderRadius={8} />
+                    <Skeleton width={300} height={400} borderRadius={8} />
+                    <Skeleton width={300} height={400} borderRadius={8} />
+                    <Skeleton width={300} height={400} borderRadius={8} />
+                    <Skeleton width={300} height={400} borderRadius={8} />
+                    <Skeleton width={300} height={400} borderRadius={8} />
+                    <Skeleton width={300} height={400} borderRadius={8} />
+
+                </div>
 
             </>
         )
     }
-    
+
 
 
     if (isError) {
@@ -94,11 +96,11 @@ export default function Api() {
 
                 setTimeout(() => {
                     window.location.reload();
-                    
+
                 }, 100)
                 // toast.success('Produto adicionado no carrinho');
 
-                
+
             }
 
         } else {
