@@ -6,11 +6,4 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: #EEEEEE;
-}
-
-@media (min-width: 1200px) {
-  footer {
-    position: absolute;
-    bottom: 0;
-  }
 }/*# sourceMappingURL=footer.css.map */
