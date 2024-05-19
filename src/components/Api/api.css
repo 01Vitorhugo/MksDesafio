@@ -82,11 +82,11 @@
 
 @media (min-height: 530px) and (max-height: 930px) {
   .boxObeject {
-    margin-top: 10px;
+    margin-top: 70px;
     gap: 7px !important;
   }
   .boxObeject .object {
-    width: 22% !important;
+    /* width: 22% !important; */
     height: 230px !important;
   }
   .boxObeject .object figure {
@@ -100,10 +100,6 @@
   }
   .boxObeject .object button {
     height: 27px;
-  }
-  footer {
-    position: absolute;
-    bottom: 0;
   }
 }
 @media (min-width: 1200px) {
